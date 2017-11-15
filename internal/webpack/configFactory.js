@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import nodeExternals from 'webpack-node-externals';
 import path from 'path';
 import webpack from 'webpack';
-import WebpackMd5Hash from 'webpack-md5-hash';
+import WebpackChunkHash from 'webpack-chunk-hash';
 
 import { happyPackPlugin, log } from '../utils';
 import { ifElse } from '../../shared/utils/logic';
@@ -231,7 +231,7 @@ export default function webpackConfigFactory(buildOptions) {
       // our long term browser caching strategy for our client bundle, avoiding
       // cases where browsers end up having to download all the client chunks
       // even though 1 or 2 may have only changed.
-      ifClient(() => new WebpackMd5Hash()),
+      ifClient(() => new WebpackChunkHash()),
 
       // These are process.env flags that you can use in your code in order to
       // have advanced control over what is included/excluded in your bundles.
