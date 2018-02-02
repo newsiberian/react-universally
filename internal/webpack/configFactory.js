@@ -98,7 +98,7 @@ export default function webpackConfigFactory(buildOptions) {
         // For our production client bundles we include a hash in the filename.
         // That way we won't hit any browser caching issues when our bundle
         // output changes.
-        // Note: as we are using the WebpackMd5Hash plugin, the hashes will
+        // Note: as we are using the webpack-chunk-hash plugin, the hashes will
         // only change when the file contents change. This means we can
         // set very aggressive caching strategies on our bundle output.
         '[name]-[chunkhash].js',
